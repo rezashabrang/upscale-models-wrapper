@@ -1,0 +1,13 @@
+# This file contains values from Cookiecutter
+
+default_context:
+  project_name: "upscale-wrapper"
+  project_description: "A fastAPI wrapper for up-scale image models."
+  organization: "upscale-wrapper"
+  license: "MIT"
+  minimal_python_version: 3.8
+  github_name: "upscale_wrapper"
+  email: "rezashabrang.m@gmail.com"
+  version: "0.1.0"
+  line_length: "88"
+  create_example_template: "none"
