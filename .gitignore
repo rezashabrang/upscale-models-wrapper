@@ -619,3 +619,4 @@ MigrationBackup/
 # Project scope ignores
 .env
 sandbox/
+!upscale_wrapper/lib
