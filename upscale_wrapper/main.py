@@ -5,7 +5,7 @@ import os
 
 from fastapi import Depends, FastAPI, Header, HTTPException
 from fastapi.openapi.utils import get_openapi
-from routers import http_upscale
+from upscale_wrapper.routers import http_upscale
 app = FastAPI()
 DESCRIPTION = """
 """
