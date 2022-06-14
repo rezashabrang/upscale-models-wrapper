@@ -24,6 +24,16 @@ async def upscale_image(
     multiplier: int,
     resize: bool = False,
 ):
+    """ **Args**
+        * **model:**
+        Name of the model. Current available models are `EDSR`,`ESPCN`,`FSRCNN`,`LapSRN`
+
+        * **multiplier:**
+        Multiplier integer for upscale. Note that each model support some specified multiplier.
+
+        * **resize:**
+        Whether to resize the model to the standard **1200px** width.
+        """
     try:
         upscale_model = None 
         # Find the model

@@ -8,6 +8,7 @@ from fastapi.openapi.utils import get_openapi
 from upscale_wrapper.routers import http_upscale
 app = FastAPI()
 DESCRIPTION = """
+A fast API implementation for wrapping upscale models.
 """
 
 
@@ -24,7 +25,7 @@ def custom_openapi():
         return app.openapi_schema
     openapi_schema = get_openapi(
         title="Upscale Wrapper",
-        version="0.0",
+        version="0.1",
         description=DESCRIPTION,
         routes=app.routes,
     )
