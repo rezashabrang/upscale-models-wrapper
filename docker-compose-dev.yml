@@ -10,6 +10,7 @@ services:
         networks:
             - upscale-net
         environment:
+            WEB_CONCURRENCY: ${WEB_CONCURRENCY}
             API_KEY: ${API_KEY}
             LOG_LEVEL: ${LOG_LEVEL}
         volumes:

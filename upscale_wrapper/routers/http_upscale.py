@@ -1,9 +1,8 @@
 """Upscale endpoints"""
 import cv2
-from fastapi import APIRouter, HTTPException, UploadFile
+from fastapi import APIRouter, HTTPException, UploadFile, Response
 from upscale_wrapper.logger import LoggerSetup
 from upscale_wrapper.lib.upscale import get_models, upscale_img
-from starlette.responses import StreamingResponse
 import io
 import numpy as np
 from time import time
@@ -29,7 +28,7 @@ async def upscale_image(
         upscale_model = None 
         # Find the model
         for item in MODELS:
-            if item["model_name"] == model and item["model_multiplier"] == multiplier:
+            if item["model_name"].lower() == model.lower() and item["model_multiplier"] == multiplier:
                 upscale_model = item["model"]
                 break
 
@@ -60,9 +59,9 @@ async def upscale_image(
         _, image = cv2.imencode(".png", image)
         e = time()
         print(f"encode time {(e - s) * 1000} ms")
-
-        return StreamingResponse(
-            io.BytesIO(image.tobytes()), media_type="image/png")
+        # StreamingResponse(
+        #     io.BytesIO(image.tobytes()), media_type="image/png")
+        return Response(content=image.tobytes(), media_type="image/png")
 
     except HTTPException as err:
         LOGGER.error(err)
