@@ -1,0 +1,23 @@
+version: "3.7"
+
+services:
+    upscale-wrapper:
+        build:
+            dockerfile: Dockerfile.dev
+            context: .
+        image: upscale-wrapper
+        container_name: upscale-wrapper
+        networks:
+            - upscale-net
+        environment:
+            API_KEY: ${API_KEY}
+            LOG_LEVEL: ${LOG_LEVEL}
+        volumes:
+            - .:/app/
+            - /app/.venv
+        ports:
+            - "8000:80"
+
+networks:
+    upscale-net:
+        name: upscale-net

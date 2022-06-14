@@ -32,6 +32,11 @@ classifiers = [  #! Update me
 
 [tool.poetry.dependencies]
 python = "^3.8"
+fastapi = "*"
+uvicorn = {version = "^0.15.0", extras = ["standard"]}
+python-multipart = "*"
+opencv-contrib-python = "*"
+opencv-python = "*"
 
 [tool.poetry.dev-dependencies]
 bandit = "^1.7.1"
