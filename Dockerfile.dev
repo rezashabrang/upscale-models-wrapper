@@ -1,4 +1,4 @@
-FROM python:3.8-slim
+FROM python:3.10-alpine
 
 WORKDIR /app
 # set environment variables
@@ -14,7 +14,9 @@ ENV LANG=C.UTF-8 \
 
 # install dependencies
 # build-essential python3-dev
-RUN apt update && apt upgrade -y && apt install curl python3-opencv ffmpeg libsm6 libxext6 -y
+# RUN apt update && apt upgrade -y && apt install curl python3-opencv ffmpeg libsm6 libxext6 -y
+# python3-dev
+RUN apk add curl gcc musl-dev libffi-dev make automake g++ python3-dev
 
 # POETRY
 RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=/opt/poetry python && \
